@@ -1,0 +1,18 @@
+.aside-class {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+@media (min-width: 640px) {
+  /* sm: */
+  .aside-class {
+    background-image: url(/assets/images/bg-sidebar-desktop.svg);
+  }
+}
+
+@media (max-width: 639px) {
+  .aside-class {
+    background-image: url(/assets/images/bg-sidebar-mobile.svg);
+  }
+}
