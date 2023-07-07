@@ -11,7 +11,7 @@ const Footer = ({ currentStep, prevStep, nextStep, confirm }: FooterProps) => {
   if (currentStep === 5) return <></>;
 
   return (
-    <div className="flex justify-between px-4 py-2  mt-4">
+    <footer className="footer flex justify-between p2">
       {currentStep !== 1 ? (
         <button
           className={`px-4 py-2 font-semibold ${
@@ -27,6 +27,8 @@ const Footer = ({ currentStep, prevStep, nextStep, confirm }: FooterProps) => {
       {currentStep < 4 ? (
         <button
           className="px-4 py-2 rounded-md text-white font-semibold bg-blue-900"
+          type="submit"
+          form="foo"
           onClick={nextStep}
         >
           Next step
@@ -39,7 +41,7 @@ const Footer = ({ currentStep, prevStep, nextStep, confirm }: FooterProps) => {
           Confirm
         </button>
       )}
-    </div>
+    </footer>
   );
 };
 

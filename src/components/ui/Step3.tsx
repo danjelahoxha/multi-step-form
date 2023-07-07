@@ -2,27 +2,30 @@ import React from "react";
 import { useFormContext } from "@/src/hooks/useFormContext";
 import { addonsOptionsData } from "@/src/constants";
 import { Addon } from "@/src/types";
-import Footer from "@/components/Footer";
+import Footer from "@/src/components/Footer";
 import { useForm } from "react-hook-form";
 
 const Step3: React.FC = () => {
-  const { data, setData, currentStep, prevStep, nextStep } = useFormContext();
-  const { planDuration } = data;
-  const { addons = [] } = data;
+  const {
+    data,
+    setData,
+    currentStep,
+    prevStep,
+    nextStep,
+    stepTitle,
+    stepSubtitle,
+  } = useFormContext();
 
-  const selectedAddons: boolean[] =
-    addonsOptionsData.map((item) =>
-      addons.some((x: any) => x.addon_id === item.addon_id)
-    ) || [];
+  const { planDuration, addons = [] } = data;
 
   const { register, handleSubmit } = useForm({
-    defaultValues: { addons: selectedAddons },
+    defaultValues: data,
   });
 
   const onSubmit = (formData: any) => {
     setData({
       ...data,
-      addons: addonsOptionsData.filter((item, index) => formData.addons[index]),
+      addons: formData.addons,
     });
     nextStep();
   };
@@ -30,8 +33,13 @@ const Step3: React.FC = () => {
   const isMonth = planDuration === "monthly";
 
   return (
-    <div className="container mx-auto">
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className="card p-6 m-6">
+        <div className="mb-16">
+          <h1 className="text-4xl font-bold text-blue-900">{stepTitle()}</h1>
+          <h2 className="text-gray-500 text-lg">{stepSubtitle()}</h2>
+        </div>
+
         {addonsOptionsData.map((option: Addon, index: number) => (
           <div key={option.title} className="mb-4">
             <label
@@ -62,15 +70,13 @@ const Step3: React.FC = () => {
             </label>
           </div>
         ))}
-        <div className="flex justify-center mb-4 mt-auto">
-          <Footer
-            currentStep={currentStep}
-            prevStep={prevStep}
-            nextStep={handleSubmit(onSubmit)}
-          />
-        </div>
       </form>
-    </div>
+      <Footer
+        currentStep={currentStep}
+        prevStep={prevStep}
+        nextStep={handleSubmit(onSubmit)}
+      />
+    </>
   );
 };
 

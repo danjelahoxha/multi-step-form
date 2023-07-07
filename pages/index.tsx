@@ -1,10 +1,10 @@
 import React from "react";
 import { useFormContext } from "../src/hooks/useFormContext";
-import Step1 from "@/components/ui/Step1";
-import Step2 from "@/components/ui/Step2";
-import Step3 from "@/components/ui/Step3";
-import Summary from "@/components/ui/Summary";
-import ThankYou from "@/components/ui/ThankYou";
+import Step1 from "@/src/components/ui/Step1";
+import Step2 from "@/src/components/ui/Step2";
+import Step3 from "@/src/components/ui/Step3";
+import Summary from "@/src/components/ui/Summary";
+import ThankYou from "@/src/components/ui/ThankYou";
 
 const Home: React.FC = () => {
   const { currentStep } = useFormContext();

@@ -1,8 +1,7 @@
-import { useEffect } from "react";
 import { Controller } from "react-hook-form";
 
 interface ToggleProps {
-  control: any;
+  control: any; // todo: fix type
   name: string;
   options: {
     on: { label: string; value: string };

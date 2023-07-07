@@ -1,4 +1,3 @@
-// FormContext.tsx
 import React, { createContext, useReducer } from "react";
 import { FormState, Step, Meta } from "../types";
 
@@ -6,21 +5,19 @@ interface ContextState extends FormState {
   nextStep: () => void;
   prevStep: () => void;
   setStep: (step: Step) => void;
-  setData: (data: any) => void; // Generic method to set data
+  setData: (data: any) => void; // todo: Generic type data
   stepTitle: () => string;
   stepSubtitle: () => string;
 }
 
-export const FormContext = createContext<ContextState | undefined>(undefined);
-
-//  actions for our reducer
 type Action =
   | { type: "next_step" }
   | { type: "prev_step" }
   | { type: "set_step"; payload: Step }
-  | { type: "set_data"; payload: { key: string; value: any } }; // New action type
+  | { type: "set_data"; payload: { key: string; value: any } };
 
-// form reducer
+export const WizardContext = createContext<ContextState | undefined>(undefined);
+
 function formReducer(state: FormState, action: Action): FormState {
   switch (action.type) {
     case "next_step":
@@ -76,5 +73,7 @@ export function FormProvider({ children, meta }: FormProviderProps) {
     },
   };
 
-  return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
+  return (
+    <WizardContext.Provider value={value}>{children}</WizardContext.Provider>
+  );
 }

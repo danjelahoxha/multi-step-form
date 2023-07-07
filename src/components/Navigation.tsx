@@ -28,7 +28,7 @@ const Navigation: React.FC = () => {
       <Step
         number={4}
         title="Summary"
-        isCurrentStep={currentStep === 4}
+        isCurrentStep={currentStep === 4 || currentStep === 5}
         onClick={setStep}
       />
     </div>

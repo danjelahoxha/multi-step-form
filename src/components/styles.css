@@ -1,3 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    background-color: theme("colors.white");
+    border-radius: theme("borderRadius.lg");
+  }
+  .footer {
+    background-color: theme("colors.white");
+    padding: theme("spacing.6");
+  }
+}
 .aside-class {
   background-repeat: no-repeat;
   background-size: cover;
