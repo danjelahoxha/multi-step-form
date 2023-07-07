@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormContext } from "../src/hooks/useFormContext";
+import { useFormContext } from "../src/hooks/useWizardContext";
 import Step1 from "@/src/components/ui/Step1";
 import Step2 from "@/src/components/ui/Step2";
 import Step3 from "@/src/components/ui/Step3";

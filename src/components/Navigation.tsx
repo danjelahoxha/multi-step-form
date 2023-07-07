@@ -1,4 +1,4 @@
-import { useFormContext } from "@/src/hooks/useFormContext";
+import { useFormContext } from "@/src/hooks/useWizardContext";
 import React from "react";
 import Step from "./atoms/StepItem";
 

@@ -1,7 +1,6 @@
-import { useFormContext } from "@/src/hooks/useFormContext";
+import { useFormContext } from "@/src/hooks/useWizardContext";
 import { PlanDuration, Addon, WizardFormData, Plan } from "@/src/types";
 import React from "react";
-import Link from "next/link";
 import { addonsOptionsData, plansData } from "@/src/constants";
 import Footer from "@/src/components/Footer";
 
