@@ -2,37 +2,33 @@ export type PlanType = "arcade" | "advanced" | "pro";
 export type PlanDuration = "monthly" | "yearly";
 export type Step = 1 | 2 | 3 | 4 | 5;
 
-type Meta = {
+export type Meta = {
   title: string;
   subtitle: string;
 };
 export type Addon = {
+  id?: string;
+  addon_id: number;
   title: string;
   description: string;
   pricePerMonth: number;
   pricePerYear: number;
 };
 
-export interface UserInformation {
+export interface WizardFormData {
   name: string;
   email: string;
   phoneNumber: string;
-}
 
-export interface PlanSelection {
   planType: PlanType;
   planDuration: PlanDuration;
-}
 
-export interface AddonsSelection {
   addons: Addon[];
 }
 
 export interface FormState {
-  currentStep: number;
-  userInfo: UserInformation;
-  planSelection: PlanSelection;
-  addonsSelection: AddonsSelection;
+  currentStep: Step;
+  data: any; //T;
   meta: Meta[];
 }
 

@@ -1,9 +1,13 @@
-import { useFormContext } from "@/src/hooks/useFormContext";
+import { Step } from "@/src/types";
 import React from "react";
+interface FooterProps {
+  currentStep: Step;
+  prevStep?: () => void;
+  nextStep?: () => void;
+  confirm?: () => void;
+}
 
-const Footer: React.FC = () => {
-  const { currentStep, prevStep, nextStep } = useFormContext();
-
+const Footer = ({ currentStep, prevStep, nextStep, confirm }: FooterProps) => {
   if (currentStep === 5) return <></>;
 
   return (
@@ -13,7 +17,6 @@ const Footer: React.FC = () => {
           className={`px-4 py-2 font-semibold ${
             currentStep > 1 ? "" : "cursor-not-allowed"
           }`}
-          disabled={currentStep === 1}
           onClick={prevStep}
         >
           Go back
@@ -31,7 +34,7 @@ const Footer: React.FC = () => {
       ) : (
         <button
           className="px-4 py-2 rounded-md text-white font-semibold bg-violet-500"
-          onClick={nextStep}
+          onClick={confirm}
         >
           Confirm
         </button>

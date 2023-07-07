@@ -1,6 +1,6 @@
 // hooks.ts
 import { useContext } from "react";
-import { FormContext } from "../contexts/FormContext";
+import { FormContext } from "../contexts/WizardContext";
 
 export const useFormContext = () => {
   const context = useContext(FormContext);

@@ -9,10 +9,7 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { meta, currentStep } = useFormContext();
-
-  const stepTitle = meta[currentStep - 1] && meta[currentStep - 1].title;
-  const stepSubTitle = meta[currentStep - 1] && meta[currentStep - 1].subtitle;
+  const { stepTitle, stepSubtitle } = useFormContext();
 
   return (
     <div className="flex h-screen flex-col lg:flex-row">
@@ -23,13 +20,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main className="w-full lg:w-3/4 md:w-2/3 sm:w-1/2 p-4 flex flex-col mx-16 sm:mx-4">
         <div>
           <div className="mb-16">
-            <h1 className="text-4xl font-bold text-blue-900">{stepTitle}</h1>
-            <h2 className="text-gray-500 text-lg">{stepSubTitle}</h2>
+            <h1 className="text-4xl font-bold text-blue-900">{stepTitle()}</h1>
+            <h2 className="text-gray-500 text-lg">{stepSubtitle()}</h2>
           </div>
           <div className="flex-grow bg-white overflow-auto">{children}</div>
-        </div>
-        <div className="mt-auto">
-          <Footer />
         </div>
       </main>
     </div>

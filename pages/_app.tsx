@@ -1,12 +1,12 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { AppProps } from "next/app";
-import { FormProvider } from "../src/contexts/FormContext";
+import { FormProvider } from "../src/contexts/WizardContext";
 import "../styles/globals.css";
-
+import { metaTitleSteps } from "../src/constants";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <FormProvider>
+    <FormProvider meta={metaTitleSteps}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
