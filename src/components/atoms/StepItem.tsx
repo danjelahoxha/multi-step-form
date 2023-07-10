@@ -6,6 +6,7 @@ interface StepProps {
   title: string;
   isCurrentStep: boolean;
   onClick: (step: Step) => void;
+  disabled?: boolean;
 }
 
 const Step: React.FC<StepProps> = ({
@@ -13,11 +14,16 @@ const Step: React.FC<StepProps> = ({
   title,
   isCurrentStep,
   onClick,
+  disabled = false,
 }) => {
   return (
-    <div
-      className="flex items-center my-4 uppercase"
-      onClick={() => onClick(number)}
+    <button
+      className={`flex items-center my-4 uppercase ${
+        disabled ? "cursor-not-allowed" : "cursor-pointer"
+      }`}
+      onClick={() => !disabled && onClick(number)}
+      disabled={disabled}
+      aria-disabled={disabled}
     >
       <div
         className={`w-10 h-10 flex justify-center items-center rounded-full border-2 ${
@@ -25,6 +31,7 @@ const Step: React.FC<StepProps> = ({
             ? "bg-blue-200 text-blue-900"
             : "border-2ray-400 text-gray-200"
         }`}
+        aria-current={isCurrentStep}
       >
         {number}
       </div>
@@ -33,7 +40,7 @@ const Step: React.FC<StepProps> = ({
         <div className="text-sm text-gray-400   uppercase">Step {number}</div>
         <div className={"text-gray-200 uppercase"}>{title}</div>
       </div>
-    </div>
+    </button>
   );
 };
 

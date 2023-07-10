@@ -1,0 +1,7 @@
+@font-face {
+  font-family: "Ubuntu"; /* Define the custom font name */
+  src: url("/assets/fonts/Ubuntu-Regular.ttf") format("truetype"); /* Replace with the path to your font file */
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}

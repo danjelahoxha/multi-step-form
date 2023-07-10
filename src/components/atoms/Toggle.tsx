@@ -20,12 +20,21 @@ export default function Toggle({
       control={control}
       name={name}
       render={({ field: { onChange, value } }) => (
-        <div className="relative flex flex-row items-center justify-center overflow-hidden">
-          <span className="mr-2 text-sm font-medium text-gray-900">
+        <div className="relative flex flex-row items-center justify-center overflow-hidden  cursor-pointer">
+          <span
+            className={`mr-2 text-sm font-medium ${
+              value === options.off.value ? "text-blue-900" : "text-gray-400"
+            }`}
+            onClick={() => onChange(options.off.value)}
+          >
             {options.off.label}
           </span>
-          <label className="inline-flex items-center cursor-pointer">
+          <label
+            className="inline-flex items-center cursor-pointer"
+            htmlFor={name}
+          >
             <input
+              id={name}
               type="checkbox"
               className="sr-only"
               checked={value === options.on.value}
@@ -38,7 +47,7 @@ export default function Toggle({
             />
             <div
               className={`w-11 h-6 relative rounded-full transition-colors ease-in-out duration-200 ${
-                value === options.on.value ? "bg-gray-200" : "bg-blue-900"
+                value === options.on.value ? "bg-gray-400" : "bg-blue-900"
               }`}
             >
               <div
@@ -48,7 +57,12 @@ export default function Toggle({
               ></div>
             </div>
           </label>
-          <span className="ml-2 text-sm font-medium text-gray-900">
+          <span
+            className={`ml-2 text-sm font-medium ${
+              value === options.on.value ? "text-blue-900" : "text-gray-400"
+            }`}
+            onClick={() => onChange(options.on.value)}
+          >
             {options.on.label}
           </span>
         </div>

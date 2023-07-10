@@ -50,18 +50,22 @@ export const addonsOptionsData: Addon[] = [
 
 export const metaTitleSteps = [
   {
+    header: "OUR INFO",
     title: "Personal info",
     subtitle: "Please provide your name, email address, and phone number.",
   },
   {
+    header: "SELECT PLAN",
     title: "Select your plan",
     subtitle: "You have the option of monthly or yearly billing.",
   },
   {
+    header: "ADD-ONS",
     title: "Pick add-ons",
     subtitle: "Add-ons help enhance your gaming experience.",
   },
   {
+    header: "SUMMARY",
     title: "Finishing up",
     subtitle: "Double-check everything looks OK before confirming.",
   },

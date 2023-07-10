@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormContext } from "../src/hooks/useWizardContext";
+import { useWizardContext } from "../src/hooks/useWizardContext";
 import Step1 from "@/src/components/ui/Step1";
 import Step2 from "@/src/components/ui/Step2";
 import Step3 from "@/src/components/ui/Step3";
@@ -7,7 +7,7 @@ import Summary from "@/src/components/ui/Summary";
 import ThankYou from "@/src/components/ui/ThankYou";
 
 const Home: React.FC = () => {
-  const { currentStep } = useFormContext();
+  const { currentStep } = useWizardContext();
 
   return (
     <>

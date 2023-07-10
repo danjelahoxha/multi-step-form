@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormContext } from "@/src/hooks/useWizardContext";
+import { useWizardContext } from "@/src/hooks/useWizardContext";
 import { addonsOptionsData } from "@/src/constants";
 import { Addon } from "@/src/types";
 import Footer from "@/src/components/Footer";
@@ -14,7 +14,7 @@ const Step3: React.FC = () => {
     nextStep,
     stepTitle,
     stepSubtitle,
-  } = useFormContext();
+  } = useWizardContext();
 
   const { planDuration, addons = [] } = data;
 

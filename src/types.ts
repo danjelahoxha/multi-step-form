@@ -2,10 +2,6 @@ export type PlanType = "arcade" | "advanced" | "pro";
 export type PlanDuration = "monthly" | "yearly";
 export type Step = 1 | 2 | 3 | 4 | 5;
 
-export type Meta = {
-  title: string;
-  subtitle: string;
-};
 export type Addon = {
   id?: string;
   addon_id: number;
@@ -29,7 +25,6 @@ export interface WizardFormData {
 export interface FormState {
   currentStep: Step;
   data: any; //T;
-  meta: Meta[];
 }
 
 export interface Plan {

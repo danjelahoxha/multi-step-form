@@ -1,16 +1,17 @@
 import React from "react";
 import Layout from "../src/components/Layout";
 import { AppProps } from "next/app";
-import { FormProvider } from "../src/contexts/WizardContext";
+import { WizardContextProvider } from "../src/contexts/WizardContext";
 import "../styles/globals.css";
 import { metaTitleSteps } from "../src/constants";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <FormProvider meta={metaTitleSteps}>
+    <WizardContextProvider steps={metaTitleSteps} initialData={{}}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </FormProvider>
+    </WizardContextProvider>
   );
 }
 

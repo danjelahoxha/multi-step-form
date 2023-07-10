@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormContext } from "@/src/hooks/useWizardContext";
+import { useWizardContext } from "@/src/hooks/useWizardContext";
 import { useForm } from "react-hook-form";
 import { plansData } from "@/src/constants";
 import Footer from "@/src/components/Footer";
@@ -14,7 +14,7 @@ const Step2: React.FC = () => {
     nextStep,
     stepTitle,
     stepSubtitle,
-  } = useFormContext();
+  } = useWizardContext();
   const { planType = "advanced", planDuration = "monthly" } = data;
 
   const { register, handleSubmit, control, watch } = useForm({
@@ -56,8 +56,8 @@ const Step2: React.FC = () => {
                 <p className="mb-4 text-gray-500">
                   $
                   {data.planDuration === "monthly"
-                    ? `$${plan.priceMonthly}/mo`
-                    : `$${plan.priceYearly}/yr`}
+                    ? `${plan.priceMonthly}/mo`
+                    : `${plan.priceYearly}/yr`}
                 </p>
                 {data.planDuration !== "monthly" && (
                   <p className="text-blue-800">2 months free</p>
@@ -65,7 +65,7 @@ const Step2: React.FC = () => {
               </label>
             ))}
           </div>
-          <div className="flex justify-center mt-4 ">
+          <div className="flex justify-center mt-4 bg-slate-100 p-2 max-w-xs mx-auto">
             <Toggle
               control={control}
               name="planDuration"

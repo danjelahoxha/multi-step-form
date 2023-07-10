@@ -1,4 +1,4 @@
-import { useFormContext } from "@/src/hooks/useWizardContext";
+import { useWizardContext } from "@/src/hooks/useWizardContext";
 import { PlanDuration, Addon, WizardFormData, Plan } from "@/src/types";
 import React from "react";
 import { addonsOptionsData, plansData } from "@/src/constants";
@@ -21,12 +21,16 @@ const calculateAddonsPrice = (addons: Addon[], planDuration: PlanDuration) => {
   return addons.reduce((total, addon) => total + addon[priceType], 0);
 };
 
-const calculateTotals = (data: WizardFormData, plansData: Plan[]) => {
-  const { planDuration, addons = [] } = data;
+const calculateTotals = (
+  data: WizardFormData,
+  plansData: Plan[],
+  selectedAddons: Addon[]
+) => {
+  const { planDuration } = data;
 
   const selectedPlan = getSelectedPlan(data, plansData);
   const planPrice = getPlanPrice(selectedPlan as Plan, planDuration);
-  const addonsPrice = calculateAddonsPrice(addons, planDuration);
+  const addonsPrice = calculateAddonsPrice(selectedAddons, planDuration);
 
   const total = planPrice + addonsPrice;
   const durationFormat = planDuration === "monthly" ? "mo" : "yr";
@@ -43,15 +47,15 @@ const Summary: React.FC = ({}) => {
     setStep,
     stepTitle,
     stepSubtitle,
-  } = useFormContext();
+  } = useWizardContext();
   const { planDuration, addons } = data;
 
-  const totals = calculateTotals(data, plansData);
-  const { selectedPlan, planPrice, durationFormat, total } = totals;
   const selectedAddons = addonsOptionsData?.filter(
     (item: Addon, index: number) => addons[index]
   );
-  console.log(addons, selectedAddons);
+
+  const totals = calculateTotals(data, plansData, selectedAddons);
+  const { selectedPlan, planPrice, durationFormat, total } = totals;
   return (
     <>
       <div className="card p-6 m-6">

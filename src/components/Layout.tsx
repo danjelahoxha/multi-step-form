@@ -1,8 +1,6 @@
 import React, { ReactNode } from "react";
 import Navigation from "./Navigation";
-import { useFormContext } from "@/src/hooks/useWizardContext";
 import "./styles.css";
-
 interface LayoutProps {
   children: ReactNode;
 }

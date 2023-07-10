@@ -1,5 +1,5 @@
 import Footer from "@/src/components/Footer";
-import { useFormContext } from "@/src/hooks/useWizardContext";
+import { useWizardContext } from "@/src/hooks/useWizardContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -14,7 +14,7 @@ const Step1 = () => {
     phoneNumber: z.string().min(1, "This field  is required"),
   });
   const { data, currentStep, setData, nextStep, stepTitle, stepSubtitle } =
-    useFormContext();
+    useWizardContext();
 
   const {
     register,
