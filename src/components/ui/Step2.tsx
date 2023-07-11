@@ -29,7 +29,11 @@ const Step2: React.FC = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="card p-6 m-6">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="card p-6 m-6"
+        data-testid="step2-form"
+      >
         <div className="mb-16">
           <h1 className="text-4xl font-bold text-blue-900">{stepTitle()}</h1>
           <h2 className="text-gray-500 text-lg">{stepSubtitle()}</h2>

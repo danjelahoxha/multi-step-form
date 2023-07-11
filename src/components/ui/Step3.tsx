@@ -1,8 +1,8 @@
 import React from "react";
-import { useWizardContext } from "@/src/hooks/useWizardContext";
-import { addonsOptionsData } from "@/src/constants";
-import { Addon } from "@/src/types";
-import Footer from "@/src/components/layout/Footer";
+import { useWizardContext } from "../../hooks/useWizardContext";
+import { addonsOptionsData } from "../../constants";
+import { Addon } from "../../types";
+import Footer from "../../components/layout/Footer";
 import { useForm } from "react-hook-form";
 
 const Step3: React.FC = () => {
@@ -46,11 +46,14 @@ const Step3: React.FC = () => {
               className={`flex items-center flex-row justify-between border p-4 rounded-md ${
                 addons.includes(option.title) && "border-purple-700"
               }`}
+              htmlFor={`addons[${index}]`}
             >
               <div className="flex items-center">
                 <input
                   {...register(`addons[${index}]`)}
+                  id={`addons[${index}]`}
                   type="checkbox"
+                  name={option.title}
                   className={`mr-2 text-purple-800 ${
                     addons.includes(option.id) ? "bg-checkbox-purple" : ""
                   }`}
