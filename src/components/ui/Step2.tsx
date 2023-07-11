@@ -1,9 +1,9 @@
 import React from "react";
-import { useWizardContext } from "@/src/hooks/useWizardContext";
+import { useWizardContext } from "../../hooks/useWizardContext";
 import { useForm } from "react-hook-form";
-import { plansData } from "@/src/constants";
-import Footer from "@/src/components/Footer";
-import Toggle from "@/src/components/atoms/Toggle";
+import { plansData } from "../../constants";
+import Footer from "../layout/Footer";
+import Toggle from "../../components/atoms/Toggle";
 
 const Step2: React.FC = () => {
   const {

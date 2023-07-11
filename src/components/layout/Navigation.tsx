@@ -1,7 +1,7 @@
 import { useWizardContext } from "@/src/hooks/useWizardContext";
 import React from "react";
-import Step from "./atoms/StepItem";
-import { Step as StepType } from "../types";
+import Step from "../atoms/StepItem";
+import { Step as StepType } from "../../types";
 
 const Navigation: React.FC = () => {
   const { currentStep, setStep, steps } = useWizardContext();

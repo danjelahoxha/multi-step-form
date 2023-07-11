@@ -1,7 +1,7 @@
 import { Controller } from "react-hook-form";
 
 interface ToggleProps {
-  control: any; // todo: fix type
+  control: any;
   name: string;
   options: {
     on: { label: string; value: string };
@@ -37,6 +37,7 @@ export default function Toggle({
               id={name}
               type="checkbox"
               className="sr-only"
+              aria-label={name}
               checked={value === options.on.value}
               onChange={(e) =>
                 onChange(

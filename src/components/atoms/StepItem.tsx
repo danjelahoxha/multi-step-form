@@ -9,7 +9,7 @@ interface StepProps {
   disabled?: boolean;
 }
 
-const Step: React.FC<StepProps> = ({
+const StepItem: React.FC<StepProps> = ({
   number,
   title,
   isCurrentStep,
@@ -44,4 +44,4 @@ const Step: React.FC<StepProps> = ({
   );
 };
 
-export default Step;
+export default StepItem;

@@ -2,7 +2,7 @@ import { useWizardContext } from "@/src/hooks/useWizardContext";
 import { PlanDuration, Addon, WizardFormData, Plan } from "@/src/types";
 import React from "react";
 import { addonsOptionsData, plansData } from "@/src/constants";
-import Footer from "@/src/components/Footer";
+import Footer from "@/src/components/layout/Footer";
 
 const getSelectedPlan = (data: WizardFormData, plansData: Plan[]) => {
   const { planType } = data;

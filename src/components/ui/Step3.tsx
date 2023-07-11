@@ -2,7 +2,7 @@ import React from "react";
 import { useWizardContext } from "@/src/hooks/useWizardContext";
 import { addonsOptionsData } from "@/src/constants";
 import { Addon } from "@/src/types";
-import Footer from "@/src/components/Footer";
+import Footer from "@/src/components/layout/Footer";
 import { useForm } from "react-hook-form";
 
 const Step3: React.FC = () => {

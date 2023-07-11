@@ -1,18 +1,19 @@
-import Footer from "@/src/components/Footer";
-import { useWizardContext } from "@/src/hooks/useWizardContext";
+import Footer from "../layout/Footer";
+import { useWizardContext } from "../../hooks/useWizardContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 const Step1 = () => {
   const schema = z.object({
-    name: z.string().min(1, "This field is required"),
+    name: z.string().min(1, "Name field is required"),
     email: z
       .string()
-      .min(1, "This field is required")
+      .min(1, "Email field is required")
       .email("Invalid email address"),
-    phoneNumber: z.string().min(1, "This field  is required"),
+    phoneNumber: z.string().min(1, "Phone Number field is required"),
   });
+
   const { data, currentStep, setData, nextStep, stepTitle, stepSubtitle } =
     useWizardContext();
 
@@ -32,7 +33,12 @@ const Step1 = () => {
   };
   return (
     <>
-      <form id="foo" onSubmit={handleSubmit(onSubmit)} className="card p-6 m-6">
+      <form
+        id="form"
+        onSubmit={handleSubmit(onSubmit)}
+        className="card p-6 m-6"
+        data-testid="step1-form"
+      >
         <div className="mb-16">
           <h1 className="text-4xl font-bold text-blue-900">{stepTitle()}</h1>
           <h2 className="text-gray-500 text-lg">{stepSubtitle()}</h2>
@@ -94,7 +100,7 @@ const Step1 = () => {
           <input
             {...register("phoneNumber")}
             type="tel"
-            id="phone"
+            id="phoneNumber"
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
           />
         </div>
